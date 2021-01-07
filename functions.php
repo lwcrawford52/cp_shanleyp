@@ -47,10 +47,11 @@ if ( ! function_exists( 'shanley_price_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// This theme uses wp_nav_menu() in multiple locations.
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'shanley_price' ),
+				'social' => esc_html__( 'Social', 'shanley_price' ),
 			)
 		);
 
@@ -181,3 +182,46 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Bios - custom post type function
+function create_posttype() {
+ 
+    register_post_type( 'Bios',
+    // CPT Options
+        array(
+            'labels' => array(
+                'name' => __( 'Bios' ),
+                'singular_name' => __( 'Bio' )
+			),
+			'taxonomies' => array( 'category' ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'bios'),
+            'show_in_rest' => true,
+ 
+        )
+    );
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_posttype' );
+
+// Practices - custom post type function
+// function add_areas() {
+ 
+//     register_post_type( 'Practice Areas',
+    // CPT Options
+//         array(
+//             'labels' => array(
+//                 'name' => __( 'Practice Areas' ),
+//                 'singular_name' => __( 'Practice Area' )
+// 			),
+// 			'taxonomies' => array( 'category' ),
+//             'public' => true,
+//             'has_archive' => true,
+//             'rewrite' => array('slug' => 'areas'),
+//             'show_in_rest' => true,
+ 
+//         )
+//     );
+// }
+// Hooking up our function to theme setup
+// add_action( 'init', 'add_areas' );
