@@ -45,4 +45,18 @@
 
 
 	</div>
+	<div class="mobile-nav">
+	<nav id="mobile-nav" class="mobile">
+				
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'mobile',
+						'menu_id'        => 'primary-menu',
+					)
+				);
+				?>
+			</nav>
+
+			</div>
 	</header><!-- #masthead -->

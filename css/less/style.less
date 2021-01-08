@@ -63,6 +63,7 @@ h3 {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 42px;
+	padding:0 30px;
 }
 .site-branding {
 	margin-top: -15px;
@@ -83,6 +84,10 @@ h3 {
 	font-size: 18px;
 	letter-spacing: 1.8px;
 }
+.mobile-nav {
+	display:none;
+	margin:0 auto;
+}
 #primary-menu {
 	.menu-item {
 		padding: 0 20px;
@@ -101,6 +106,7 @@ h3 {
 		color: @white;
 	}
 }
+#menu-item-89,
 #menu-item-110 {
 	margin-left: 20px;
 }
@@ -135,6 +141,13 @@ h3 {
 		max-width: 884px;
 	}
 }
+.line {
+	position:absolute;
+	right:50%;
+	bottom:-40px;
+	height:80px;
+	border-left:3px solid @accent-red;
+}
 
 /* About styles */
 #about {
@@ -153,11 +166,11 @@ h3 {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-row-gap: 10px;
-	grid-column-gap: 100px;
+	grid-column-gap: 80px;
 	max-width: 1380px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 10px;
+	padding: 10px 30px;
 	margin-top: 20px;
 }
 .column {
@@ -217,7 +230,7 @@ h3 {
 .headshot {
 	max-width: 291px;
 	box-shadow: 4px 4px 0px #0000001A;
-	border: 2px solid @whiteFFF;
+	border: 2px solid @white;
 	margin-left: 50px;
 	margin-bottom: 30px;
 }
@@ -369,7 +382,7 @@ select {
 								font-size: 14px;
 								text-transform: uppercase;
 								padding: 12px 20px !important;
-								color: @whitefff !important;
+								color: @white !important;
 								letter-spacing: 2px !important;
 							}
 						}
@@ -491,4 +504,197 @@ select {
 	background: @dark-gray;
 	padding: 15px;
 	letter-spacing: 1.8px;
+}
+
+/* *******MEDIA QUERIES ******** */
+
+@media (max-width: 1200px) {
+  .logo {
+    width:235px;
+    padding:20px 10px;
+  }
+  .menu {
+    font-size:16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    margin-top:22px;
+  }
+  .header-inner {
+    display:block;
+  }
+  //.menu-primary-container {
+  //  padding-top:15px;
+  //}
+  #site-navigation {
+  	display:none;
+  }
+  .mobile-nav {
+  	display:block;
+  }
+  .social-primary {
+  	display:none;
+  }
+  .menu-primary-container .menu {
+  	display: flex;
+    justify-content: center;
+  }
+  #primary-menu .menu-item {
+  	border:none;
+  }
+  .hero-text {
+    padding: 220px 30px 0;
+  }
+  .columns-3 {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 50px;
+    padding: 10px 30px;
+  }
+  .about-container {
+    padding:50px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size:75px;
+  }
+  #primary-menu .menu-item {
+  	    padding: 0 10px;
+  }
+  .hero-text {
+    padding: 260px 30px 0;
+  }
+  .columns-3 {
+    display:initial;
+  }
+  .column {
+    padding:0 2em;
+  }
+  .team-row {
+    display:initial;
+  }
+  .team-bg {
+    width:initial;
+  }
+  .headshot {
+    margin:0;
+  }
+  .team-info div {
+    /* float: right; */
+    padding: 20px 90px;
+  }
+  .team-info div p img {
+    width:130px;
+  }
+  .team-content {
+    margin:50px;
+  }
+  .accordion {
+    width:100%;
+  }
+  #practice-areas {
+    padding:50px 30px;
+  }
+  .cases-inner {
+    display:initial;
+    text-align:center;
+    padding:50px;
+    grid-column-gap:30px;
+  }
+  .cases-title {
+    border:none;
+  }
+  .slider-buttons {
+    padding:15px;
+  }
+  .cases-text {
+    padding:0 30px;
+  }
+  .email-form {
+    padding-top:50px;
+  }
+  .contact-inner {
+    display:initial;
+  }
+  .contact-text {
+    text-align: center;
+    padding:20px 0;
+    border:none;
+  }
+  .menu {
+  	justify-content: center;
+  }
+}
+@media only screen and (max-width: 641px) {
+
+.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_wrapper .gform_page_footer input.button, .gform_wrapper .gform_page_footer input[type=submit] {
+  width:auto !important;
+}
+.gform_wrapper .gform_footer input.button, .gform_wrapper .gform_footer input[type=submit], .gform_wrapper .gform_page_footer input.button, .gform_wrapper .gform_page_footer input[type=submit] {
+  background: #2A3A42;
+    color: #fff;
+    position: absolute;
+    top: -64px !important;
+    right: 10px !important;
+    border: none !important;
+    font-size: 22px !important;
+
+}
+.gform_fields li.email .ginput_container i {
+  bottom:18px;
+}
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size:15px;
+  }
+ .menu-primary-container .menu {
+  	display:initial;
+  	text-align:center;
+  	font-size: 13px;
+  }
+  .menu-social-container .menu {
+  	display:flex;
+  	justify-content: center;
+  }
+  #hero {
+    height:800px;
+  }
+  .hero-text {
+    padding:250px 30px 0;
+  }
+  .hero-text p {
+  	font-size: 13px;
+  }
+  .line {
+  	height:60px;
+  }
+  h1 {
+    font-size:50px;
+  }
+  h2 {
+    font-size:40px;
+  }
+  h3 {
+    font-size:30px;
+  }
+  .team-content {
+  	margin:20px;
+  }
+  .accordion {
+    font-size:16px;
+  }
+  .footer-logo {
+    max-width:248px;
+  }
+  .email-form h4 {
+    font-size:20px;
+  }
+  .gform_wrapper form {
+    max-width:320px !important;
+  }
 }

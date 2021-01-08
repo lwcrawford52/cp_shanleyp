@@ -52,6 +52,7 @@ if ( ! function_exists( 'shanley_price_setup' ) ) :
 			array(
 				'menu-1' => esc_html__( 'Primary', 'shanley_price' ),
 				'social' => esc_html__( 'Social', 'shanley_price' ),
+				'mobile' => esc_html__( 'Mobile', 'shanley_price' ),
 			)
 		);
 
@@ -145,7 +146,7 @@ function shanley_price_scripts() {
 	wp_style_add_data( 'shanley_price-style', 'rtl', 'replace' );
 
 	// loading custom css here
-	wp_enqueue_style( 'shanley_price-custom', get_template_directory_uri() . '/css/custom.css');
+	wp_enqueue_style( 'shanley_price-custom', get_template_directory_uri() . '/css/style.css');
 
 	wp_enqueue_script( 'shanley_price-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
