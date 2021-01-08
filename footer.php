@@ -18,6 +18,13 @@
 			<div class="email-form">
 			<a href="<?php echo get_home_url(); ?>"><img src="<?php bloginfo('template_url'); ?>/assets/SP_Logo_White.svg" class="footer-logo"></a>
 			<h4>Sign Up for Our Newsletter: <span class="tan">Comp <span class="arya">SP</span>eak</span></h4>
+
+			<div class="form">
+						<?php 
+						gravity_form( 'Email Signup', false, false, false, '', true );
+						?>
+					</div>
+
 			</div>
 
 			<div class="contact-text">
@@ -32,15 +39,15 @@
 				);
 				?>
 			</nav>
-				<p>info@sp-legal.com</p>
-				<p>Phone: 512.265.8986 <br>Toll Free: 833.523.0819 <br>Fax: 512.675.6191</p>
+				<p><a href="mailto:info@sp-legal.com">info@sp-legal.com</a></p>
+				<p>Phone: <a href="tel:5122658986">512.265.8986</a> <br>Toll Free: <a href="tel:8335230819">833.523.0819</a> <br>Fax: <a href="tel:5126756191">512.675.6191</a></p>
 				<p>5501A Balcones Drive, Suite 218 <br>Austin, TX 78731</p>
 			</div>
 </div>
 </div>
 
 		<div class="site-info">
-			<p>© 2020 Shanley Price, LLP. ALL RIGHTS RESERVED. | Disclaimers | Privacy Policy | Site by CreativePickle</p>
+			<p>© 2020 Shanley Price, LLP. ALL RIGHTS RESERVED. | Disclaimers | Privacy Policy | Site by <a href="https://creativepickle.com/" target="_blank">CreativePickle</a></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
@@ -62,6 +69,13 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+</script>
+<script>
+(function($) {
+	
+	$( ".gform_fields li.email .ginput_container" ).prepend( '<i class="fal fa-envelope-open-text"></i>' );
+	  
+  })( jQuery );
 </script>
 </body>
 </html>

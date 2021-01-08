@@ -182,6 +182,11 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// enqueue jQuery, GSAP,
+wp_enqueue_script( 'jquery' );
+wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js', array(), false, true );
+wp_enqueue_script( 'script', get_template_directory_uri() . '/js/animation.js', array ( 'jquery' ), 1.1, true);
+
 // Bios - custom post type function
 function create_posttype() {
  

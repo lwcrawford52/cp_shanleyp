@@ -12,46 +12,47 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-<div id="hero">
+<div id="hero" style="<?php if( get_field('hero_image') ): ?>
+    background-image: url(<?php the_field('hero_image'); ?>);
+	<?php endif; ?>
+	">
             <div class="hero-overlay">
 			</div>	
 				
 			<div class="hero-text">
-            <h1>It’s a Regulatory World.<br>
-    <em>Be Advised.</em></h1>
-    <p>Shanley Price, LLP offers comprehensive legal services to insurance carriers, self-insureds, and employers in workers’ compensation insurance defense matters throughout the state of Texas, and represents insurance guaranty funds and insureds in insurance insolvency, receivership, and guaranty association litigation and consulting matters throughout the country.</p>
-    
+            <h1><?php the_field('hero_title'); ?></h1>
+    <p><?php the_field('hero_text'); ?></p>
 				
 			</div>
-    
+            
 </div>
 
 <div id="about" class="about-container">
-    <h2>About Our Firm</h2>
+    <h2><?php the_field('about_title'); ?></h2>
 
     <div class="columns-3">
         <!-- todo: make this content dynamic -->
         <div class="column">
             <div class="column-title">
                 <img src="<?php bloginfo('template_url'); ?>/assets/SP_AboutFirm_Dedication.svg" class="about-icon">
-                <h3>Dedication</h3>
+                <h3><?php the_field('first_column_title'); ?></h3>
 </div>
-            <p class="column-text">At Shanley Price, we are dedicated to providing effective and efficient legal representation in all aspects of workers’ compensation insurance defense. Shanley Price offers over 40 years of combined legal experience in the area of insurance law. Both the firm and its partners are AV-rated “Preeminent” by the Martindale-Hubbell law directory, the highest rating available for excellence of legal counsel, coupled with the highest ethical practices.</p>
+            <p class="column-text"><?php the_field('first_column_text'); ?></p>
         </div>
         <div class="column">
             <div class="column-title">
             <img src="<?php bloginfo('template_url'); ?>/assets/SP_AboutFirm_Responsiveness.svg" class="about-icon">
-                <h3>Responsiveness</h3>
+                <h3><?php the_field('second_column_title'); ?></h3>
                 </div>
-            <p class="column-text">Focused and responsive client service is at the heart of outstanding representation. Shanley Price offers the unparalleled experience and agility of a small firm, with the expertise and state-wide coverage of a large one. Our partners are directly involved in each matter on which they work. We are fully immersed and directly engaged in every case, which means we are more available, more responsive, and more directly accountable to our clients.
+            <p class="column-text"><?php the_field('second_column_text'); ?>
 </p>
         </div>
         <div class="column">
             <div class="column-title">
             <img src="<?php bloginfo('template_url'); ?>/assets/SP_AboutFirm_Integrity.svg" class="about-icon">
-                <h3>Integrity</h3>
+                <h3><?php the_field('third_column_title'); ?></h3>
                 </div>
-            <p class="column-text">Shanley Price is committed to principles of fairness and efficiency. We bring ingenuity, leadership, and best practices to every matter we handle, and stand ready to counsel our clients to help them achieve the most favorable outcome. Providing quality legal service with personal attention to every detail, our clients know they will receive focused attention, value, and expertise on each and every matter.</p>
+            <p class="column-text"><?php the_field('third_column_text'); ?></p>
         </div>
     </div>
 </div>
@@ -92,7 +93,7 @@ get_header();
 
                 <?php while( have_rows('bio_accordion') ): the_row(); ?>
                     
-                    <button class="accordion"><?php the_sub_field('title'); ?><i class="fal fa-plus red"></i></button>
+                    <button class="accordion"><?php the_sub_field('title'); ?><i class="rotate fal fa-plus red"></i></button>
                     <div class="panel"><?php the_sub_field('panel_text'); ?></div>
                 <?php endwhile; ?>
             
@@ -140,21 +141,25 @@ get_header();
 <div id="cases">
 
     <div class="cases-inner">
-
     <?php query_posts('posts_per_page=1'); ?>
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
         <div class="cases-title">
             <h3><?php the_title(); ?></h3>
+                <div class="slider-buttons">
+                    <button class="red"><i class="fal fa-angle-left fa-2x"></i></button>
+                    <button class="red"><i class="fal fa-angle-right fa-2x"></i></button>
+                </div>
         </div>
 
         <div class="cases-text">
             <p><?php the_content(); ?></p>
+           
         </div>
 
         <?php endwhile;
-	endif;
-	?>
+    endif;
+    ?>
 
     </div>
 
