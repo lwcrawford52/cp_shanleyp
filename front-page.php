@@ -12,14 +12,14 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-<div id="hero" style="<?php if( get_field('hero_image') ): ?>
+<div id="hero" class="fadein" style="<?php if( get_field('hero_image') ): ?>
     background-image: url(<?php the_field('hero_image'); ?>);
 	<?php endif; ?>
 	">
             <div class="hero-overlay">
 			</div>	
 				
-			<div class="hero-text">
+			<div class="hero-text translate-y">
             <h1><?php the_field('hero_title'); ?></h1>
     <p><?php the_field('hero_text'); ?></p>
 				
@@ -35,7 +35,7 @@ get_header();
     <h2><?php the_field('about_title'); ?></h2>
 
     <div class="columns-3">
-        <!-- todo: make this content dynamic -->
+        
         <div class="column">
             <div class="column-title">
                 <img src="<?php bloginfo('template_url'); ?>/assets/SP_AboutFirm_Dedication.svg" class="about-icon">
@@ -117,55 +117,46 @@ get_header();
 <div id="practice-areas">
 <h2>Practice Areas</h2>
 <p>Shanley Price is an Austin-based law firm offering comprehensive legal services in the following practice areas:</p>
-    <div class="columns-3">
-            <!-- todo: make this content dynamic -->
-            <div class="column">
-                <ul>
-                    <li>Workers’ Compensation Dispute Resolution</li>
-                    <li>Claims Consulting </li>
-                    <li>Workers’ Compensation Litigation</li>
-                </ul>
-            </div>
-            <div class="column">
-            <ul>
-                    <li>Subrogation</li>
-                    <li>Regulatory Compliance</li>
-                    <li>Austin Board Representation Services</li>
-                </ul>
-            </div>
-            <div class="column">
-            <ul>
-                    <li>Insurance Receivership & Guaranty Association Representation</li>
-                    <li>Civil & Commercial Litigation</li>
-                </ul>
-            </div>
+
+<div class="white-box"></div>
+
+<div class="areas-slider">
+<?php query_posts('category_name=practice-areas'); ?>
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                
+        <div class="slider-item">
+                <p class="practice-icon"><img src="<?php the_field('practice_icon'); ?>"></p>
+                <p class="icon-tan"><img src="<?php the_field('secondary_icon'); ?>"></p>
+                <h4 class="area-title"><?php the_title(); ?></h4>
+                    
+        </div>
+   
+            
+            <?php endwhile;
+        endif;
+        ?>
     </div>
+
 </div>
 
 <div id="cases">
-
+                
     <div class="cases-inner">
-    <?php query_posts('posts_per_page=1'); ?>
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-        <div class="cases-title">
-            <h3><?php the_title(); ?></h3>
-                <div class="slider-buttons">
-                    <button class="red"><i class="fal fa-angle-left fa-2x"></i></button>
-                    <button class="red"><i class="fal fa-angle-right fa-2x"></i></button>
+    <?php query_posts('category_name=practice-areas'); ?>
+        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        
+                <div>
+                    <h3 class="cases-title"><?php the_title(); ?></h3>
+                    <div class="cases-text">
+                    <p><?php the_content(); ?></p>
+                    </div>
                 </div>
-        </div>
-
-        <div class="cases-text">
-            <p><?php the_content(); ?></p>
-           
-        </div>
-
-        <?php endwhile;
-    endif;
-    ?>
-
-    </div>
+            
+            <?php endwhile;
+        endif;
+        ?>
+     </div>
+    
 
 </div>
 

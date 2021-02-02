@@ -40,6 +40,13 @@ h3 {
 	font-size: 36px;
 	margin: 0;
 }
+h4 {
+	font-family: 'arsenal', sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 1.2;
+	margin: 0;
+}
 .red {
 	color: @accent-red;
 }
@@ -94,6 +101,11 @@ h3 {
 		color: @white;
 		text-transform: uppercase;
 		border-right: 1px solid @tan;
+		&:hover {
+			color:#AFABA3;
+        transition-duration: 0.2s;
+        cursor:pointer;
+		}
 	}
 	.social-primary {
 		border: none !important;
@@ -104,6 +116,11 @@ h3 {
 	.menu-item {
 		padding-right: 12px;
 		color: @white;
+		&:hover {
+			color:#AFABA3;
+        transition-duration: 0.2s;
+        cursor:pointer;
+		}
 	}
 }
 #menu-item-89,
@@ -252,7 +269,7 @@ h3 {
 	padding: 15px;
 	width: 90%;
 	border-top: none;
-	border-bottom: 2px solid @darker-tan;
+	border-bottom: 1px solid @darker-tan;
 	border-right: none;
 	border-left: none;
 	text-align: left;
@@ -264,15 +281,15 @@ h3 {
 		position: absolute;
 		top: 20px;
 		right: 20px;
-		transition: all 500ms;
+		transition: all 600ms;
 	}
 }
-.first {
-	border-top: 2px solid @darker-tan;
-}
+// .first {
+// 	border-top: 2px solid @darker-tan;
+// }
 .active {
-	border-top: 1px solid @darker-tan;
-	border-bottom: none;
+	background: @lighter-tan;
+	border: none;
 	i {
 		transform: rotate(45deg);
 	}
@@ -289,39 +306,102 @@ h3 {
 	text-align: center;
 	background: url("../assets/SP_Pattern_LightTan.png") 0% 0% repeat;
 	padding: 80px 0;
+	position:relative;
+	& p {
+		margin-bottom:30px;
+	}
 }
 &::marker {
 	font-size: 25px;
 }
+.areas-slider {
+	width:100%;
+	padding:30px 0;
+	z-index:5;
+	margin-top:20px;
+}
+.white-box {
+position:absolute;
+z-index:1;
+width:100%;
+height:300px;
+background: url("../assets/white-box.png") no-repeat center center;
+}
+.practice-icon img {
+	display:none !important;
+	width:58px;
+	margin:0 auto;
+}
+.icon-tan img {
+	width:58px;
+	margin: 0 auto;
+}
+.slider-item {
+	// margin:0 auto;
+	text-align:center;
+	max-width:250px;
+	margin:0 2em;
+}
+.slick-current {
+	transition-duration: 0.9s;
+	& h4 {
+		font-weight: 700;
+		font-size: 22px;
+		line-height: 1.2;
+	}
+	& .practice-icon img {
+		width:88px;
+		display:block !important;
+	}
+	& .icon-tan {
+		display:none;
+	}
+}
+.area-title {
+	max-width:280px;
+}
 /* Cases slider styles */
+#cases {
+	position:relative;
+}
 .cases-inner {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-row-gap: 10px;
-	grid-column-gap: 100px;
 	max-width: 1380px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 90px 0;
+	padding: 90px;
 }
 .cases-title {
-	border-right: 2px solid @darker-tan;
-	padding: 0 50px;
-	align-items: top;
+	text-align:center;
+	font-style: italic;
+	position: relative;
+	margin:0 auto;
+	padding-bottom:20px;
+	line-height: 1.2;
 }
-.slider-buttons {
-	padding-top: 30px;
-	button {
-		margin-right: 15px;
-		background: @lighter-tan;
-		border: none;
-		width: 44px;
-		height: 44px;
-		i {
-			margin-top: 5px;
-		}
+.cases-text {
+	padding:20px 60px;
+	text-align:center;
+	& p {
+		margin:0;
 	}
 }
+
+.cases-arrow {
+	z-index: 50;
+	position: absolute;
+	right:50%;
+	bottom:40px;
+	background: @lighter-tan;
+    width: 44px;
+    height: 44px;
+    padding: 10px 10px 10px 14px;
+}
+.arrow-right {
+	left:51%;
+	bottom: 40px;
+}
+
+	
 /* Footer styles */
 .contact-inner {
 	display: grid;
@@ -492,6 +572,9 @@ select {
 	border-left: 2px solid @tan;
 	padding-top: 20px;
 	padding-left: 50px;
+	p {
+		line-height: 1.3;
+	}
 }
 .site-footer {
 	background: url("../assets/SP_Pattern_Blue.png") 0% 0% repeat;
@@ -504,6 +587,11 @@ select {
 	background: @dark-gray;
 	padding: 15px;
 	letter-spacing: 1.8px;
+}
+.disclaimer {
+	max-width:600px;
+	padding-top: 15px;
+    margin: 0 auto;
 }
 
 /* *******MEDIA QUERIES ******** */
@@ -555,6 +643,23 @@ select {
   .about-container {
     padding:50px 0;
   }
+  .cases-title, .cases-text {
+  	max-width:100%;
+  	float:none;
+  	border: none;
+  }
+  .practice-icon img {
+    width: 60px;
+  }
+  .cases-title {
+  	padding:10px 80px 30px;
+  }
+  .cases-text {
+  	padding:10px 80px;
+  }
+  .cases-arrow {
+  	bottom:40px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -600,7 +705,7 @@ select {
   }
   .cases-inner {
     display:initial;
-    text-align:center;
+    // text-align:center;
     padding:50px;
     grid-column-gap:30px;
   }
@@ -610,8 +715,17 @@ select {
   .slider-buttons {
     padding:15px;
   }
+  .cases-inner {
+  	padding: 3em 3em 5em 3em;
+  }
+  .cases-arrow {
+  	bottom:20px;
+  }
   .cases-text {
-    padding:0 30px;
+    padding:0 30px 0 80px;
+  }
+  .arrow-right {
+  	left:110px;
   }
   .email-form {
     padding-top:50px;

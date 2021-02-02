@@ -19,6 +19,9 @@
 
 	<?php wp_head(); ?>
 	<script src="https://kit.fontawesome.com/5e4bc6a552.js" crossorigin="anonymous"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
+
 </head>
 
 <body <?php body_class(); ?>>

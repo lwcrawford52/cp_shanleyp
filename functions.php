@@ -156,6 +156,21 @@ function shanley_price_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'shanley_price_scripts' );
 
+// Slick Slider
+// Load css & js scripts
+function enqueue_custom_scripts() {
+	//slick css to the header
+	wp_enqueue_style( 'slick_css', get_stylesheet_directory_uri() . '/css/slick.css', array(), null, false ); 
+	wp_enqueue_style( 'slick_theme_css', get_stylesheet_directory_uri() . '/css/slick-theme.css', array(), null, false ); 
+	//slick js to the footer
+	wp_register_script('slick_jquery', ( get_stylesheet_directory_uri() . '/js/slick.min.js'), array(), null, true);
+	wp_enqueue_script('slick_jquery');
+	//custom js to the footer
+	wp_register_script('custom_jquery', ( get_stylesheet_directory_uri() . '/js/custom_script.js'), array(), null, true);
+	wp_enqueue_script('custom_jquery');
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
 /**
  * Implement the Custom Header feature.
  */
@@ -186,6 +201,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 // enqueue jQuery, GSAP,
 wp_enqueue_script( 'jquery' );
 wp_enqueue_script( 'gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js', array(), false, true );
+wp_enqueue_script( 'gsap-tweenmax', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js', array(), false, true );
 wp_enqueue_script( 'script', get_template_directory_uri() . '/js/animation.js', array ( 'jquery' ), 1.1, true);
 
 // Bios - custom post type function
@@ -207,27 +223,6 @@ function create_posttype() {
         )
     );
 }
-// Hooking up our function to theme setup
+// Hooking up function to theme setup
 add_action( 'init', 'create_posttype' );
 
-// Practices - custom post type function
-// function add_areas() {
- 
-//     register_post_type( 'Practice Areas',
-    // CPT Options
-//         array(
-//             'labels' => array(
-//                 'name' => __( 'Practice Areas' ),
-//                 'singular_name' => __( 'Practice Area' )
-// 			),
-// 			'taxonomies' => array( 'category' ),
-//             'public' => true,
-//             'has_archive' => true,
-//             'rewrite' => array('slug' => 'areas'),
-//             'show_in_rest' => true,
- 
-//         )
-//     );
-// }
-// Hooking up our function to theme setup
-// add_action( 'init', 'add_areas' );
